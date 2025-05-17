@@ -72,11 +72,13 @@ X = np.array([[1,0],
               [1,3]])
 y = np.array([1,1,4])
 ```
+<br>
 
 - 2. Define theta for first iteration 
 ```python
 theta = np.array([0.1,0.1]) 
 ```
+<br>
 
 - 3. Define other parameters    
 ```python
@@ -85,19 +87,20 @@ iterations = 10000
 limited_iterations = iterations
 ep = 0.0000000001
 ```
+<br>
 
-- 4. Perform gradient descent function
+- 4. Perform gradient descent function (gradient descent funtion will calculate theta and call cost function to update half-MSE)
 ```python
 theta, cost_history, actual_iterations = gradient_descent(X, y, theta, learning_rate, iterations, ep)
 ```
-<p><font size="4">&nbsp;&nbsp;&nbsp;4.1 gradient descent funtion will calculate theta </font></p>
-<p><font size="4">&nbsp;&nbsp;&nbsp;4.2 gradient descent funtion will call cost function to update half-MSE </font></p>
+<br>
 
 - 5. Loop utill converge (delta of cost function <= ep)/ Loop utill iterations setup
 ```python
 if i > 0 and np.abs(cost_history[i] - cost_history[i - 1]) <= ep:
           return theta, cost_history, i+1
 ```
+<br>
 
 - 6. Print Result
 ```python
@@ -105,6 +108,7 @@ print("Theta (coefficients):", theta)
 print("Iterations:", str(actual_iterations),"/",str(limited_iterations))
 print("J (half-mean square error) :", cost_history[-1])
 ```
+<br>
 
 ## Part 2: Stochastic Gradient Descent
 ## Part 3: Mini-Batch Gradient Descent
