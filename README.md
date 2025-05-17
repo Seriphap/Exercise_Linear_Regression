@@ -102,7 +102,7 @@ if i > 0 and np.abs(cost_history[i] - cost_history[i - 1]) <= ep:
 ```
 <br>
 
-- 6. Print Result
+- 6. Print result
 ```python
 print("Theta (coefficients):", theta)
 print("Iterations:", str(actual_iterations),"/",str(limited_iterations))
