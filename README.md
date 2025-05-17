@@ -8,7 +8,6 @@
 - [Part 3: Mini-Batch Gradient Descent](#part-3-mini-batch-gradient-descent)
 <br>
 <br>
-<br>
 
 ## Part 0: Normal Equation(Sklearn) 
 ```python
@@ -35,5 +34,18 @@ print(f"MSE = {mse:.2f}")
 ```
 
 ## Part 1: Batch Gradient Descent
+### Cost Function: Half Mean Square Error
+- Minimize Half MSE
+<img src="https://github.com/user-attachments/assets/4825ea56-626c-45d7-9d35-f5f45d98d45e" width="20%"> 
+
+```python
+def cost_function(X, y, theta):
+    N = len(y)
+    Hypothesis = np.dot(X, theta)
+    cost = (1/(2*N)) * np.sum(np.square(Hypothesis - y))
+    return cost
+```
+
+
 ## Part 2: Stochastic Gradient Descent
 ## Part 3: Mini-Batch Gradient Descent
