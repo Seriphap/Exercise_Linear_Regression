@@ -1,12 +1,11 @@
 # Exercise_Linear_Regression
 ## Normal Equation
-- [Part 0: Normal Equation(Sklearn)](https://github.com/Seriphap/Exercise_Linear_Regression/edit/main/README.md#part-0-normal-equationsklearn)
+- [Part 0: Normal Equation(Sklearn)](#part-0-normal-equationsklearn)
 
 ## Machine Learning: Gradient Descent 
-- [Part 1: Batch Gradient Descent](https://github.com/Seriphap/Exercise_Linear_Regression/edit/main/README.md#part-1-batch-gradient-descent)
+- [Part 1: Batch Gradient Descent](#part-1-batch-gradient-descent)
 - [Part 2: Stochastic Gradient Descent](#part-2-stochastic-gradient-descent)
 - [Part 3: Mini-Batch Gradient Descent](#part-3-mini-batch-gradient-descent)
-<br>
 <br>
 
 ## Part 0: Normal Equation(Sklearn) 
@@ -35,7 +34,8 @@ print(f"MSE = {mse:.2f}")
 
 ## Part 1: Batch Gradient Descent
 ### Cost Function: Half Mean Square Error
-- Minimize Half MSE
+- Minimize half-MSE
+  
 <img src="https://github.com/user-attachments/assets/4825ea56-626c-45d7-9d35-f5f45d98d45e" width="20%"> 
 
 ```python
@@ -46,6 +46,23 @@ def cost_function(X, y, theta):
     return cost
 ```
 
+### Gradient Descent Function
+- Fine theta
+  
+  <img src="https://github.com/user-attachments/assets/8598baca-53d0-497c-8443-74c6467c31af" width="40%"> 
+
+```python
+def gradient_descent(X, y, theta, learning_rate, iterations, ep):
+    N = len(y)
+    cost_history = []
+    for i in range(iterations):
+        Hypothesis = np.dot(X, theta)
+        theta = theta - (learning_rate / N) * np.dot(X.transpose(), (Hypothesis - y))
+        cost_history.append(cost_function(X, y, theta))
+        if i > 0 and np.abs(cost_history[i] - cost_history[i - 1]) <= ep:
+          return theta, cost_history, i+1
+    return theta, cost_history, iterations
+```
 
 ## Part 2: Stochastic Gradient Descent
 ## Part 3: Mini-Batch Gradient Descent
