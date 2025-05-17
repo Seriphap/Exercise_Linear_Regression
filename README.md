@@ -64,5 +64,30 @@ def gradient_descent(X, y, theta, learning_rate, iterations, ep):
     return theta, cost_history, iterations
 ```
 
+### Training Process
+- 1. Input data for X and Y
+
+```python
+X = np.array([[1,0],
+              [1,2],
+              [1,3]])
+y = np.array([1,1,4])
+```
+
+- 2. Define theta for first iteration
+  
+```python
+theta = np.array([0.1,0.1]) 
+```
+
+- 3. Define other parameters
+     
+```python
+learning_rate = 0.01
+iterations = 10000
+limited_iterations = iterations
+ep = 0.0000000001
+```
+
 ## Part 2: Stochastic Gradient Descent
 ## Part 3: Mini-Batch Gradient Descent
