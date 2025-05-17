@@ -65,8 +65,7 @@ def gradient_descent(X, y, theta, learning_rate, iterations, ep):
 ```
 
 ### Training Process
-- 1. Input data for X and Y
-
+- 1. Input data for X and y
 ```python
 X = np.array([[1,0],
               [1,2],
@@ -74,19 +73,37 @@ X = np.array([[1,0],
 y = np.array([1,1,4])
 ```
 
-- 2. Define theta for first iteration
-  
+- 2. Define theta for first iteration 
 ```python
 theta = np.array([0.1,0.1]) 
 ```
 
-- 3. Define other parameters
-     
+- 3. Define other parameters    
 ```python
 learning_rate = 0.01
 iterations = 10000
 limited_iterations = iterations
 ep = 0.0000000001
+```
+
+- 4. Perform gradient descent function
+```python
+theta, cost_history, actual_iterations = gradient_descent(X, y, theta, learning_rate, iterations, ep)
+```
+<p><font size="4">&nbsp;&nbsp;&nbsp;4.1 gradient descent funtion will calculate theta </font></p>
+<p><font size="4">&nbsp;&nbsp;&nbsp;4.2 gradient descent funtion will call cost function to update half-MSE </font></p>
+
+- 5. Loop utill converge (delta of cost function <= ep)/ Loop utill iterations setup
+```python
+if i > 0 and np.abs(cost_history[i] - cost_history[i - 1]) <= ep:
+          return theta, cost_history, i+1
+```
+
+- 6. Print Result
+```python
+print("Theta (coefficients):", theta)
+print("Iterations:", str(actual_iterations),"/",str(limited_iterations))
+print("J (half-mean square error) :", cost_history[-1])
 ```
 
 ## Part 2: Stochastic Gradient Descent
