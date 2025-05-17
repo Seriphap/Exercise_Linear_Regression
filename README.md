@@ -118,9 +118,8 @@ print("half-mean square error :", cost_history[-1])
 
 ```python
 def cost_function(X, y, theta):
-    N = 1
     Hypothesis = np.dot(X, theta)
-    cost = (1/(2*N)) * np.sum(np.square(Hypothesis - y)) 
+    cost = (1/(2*1)) * np.sum(np.square(Hypothesis - y)) 
     return cost
 ```
 
